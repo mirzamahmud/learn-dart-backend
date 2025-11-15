@@ -1,4 +1,6 @@
 include: package:dart_frog_lint/recommended.yaml
 analyzer:
   errors:
+    avoid_catching_errors: ignore
     avoid_positional_boolean_parameters: ignore
+    no_default_cases: ignore
