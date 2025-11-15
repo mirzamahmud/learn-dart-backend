@@ -23,5 +23,38 @@ class TaskRepository {
     return task;
   }
 
-  ///
+  /// Update existing task
+  Task? updateTask(
+    String id,
+    String? newTitle,
+    String? newDescription,
+    bool? newIsCompleted,
+  ) {
+    final taskIndex = _tasks.indexWhere((task) => task.id == id);
+    if (taskIndex == -1) return null;
+
+    final existingTask = _tasks[taskIndex];
+
+    if (newTitle != null) {
+      existingTask.title = newTitle;
+    }
+
+    if (newDescription != null) {
+      existingTask.description = newDescription;
+    }
+
+    if (newIsCompleted != null) {
+      existingTask.isCompleted = newIsCompleted;
+    }
+
+    return existingTask;
+  }
+
+  /// Delete Task
+  bool deleteTask(String id) {
+    final beforeLength = _tasks.length;
+    _tasks.removeWhere((task) => task.id == id);
+
+    return _tasks.length < beforeLength;
+  }
 }
