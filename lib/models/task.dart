@@ -33,13 +33,13 @@ class Task {
   final String id;
 
   /// Task title
-  final String title;
+  String title;
 
   /// Task description (optional)
-  final String? description;
+  String? description;
 
   /// Check task is completed or not
-  final bool isCompleted;
+  bool isCompleted;
 
   /// Copy With Method
   Task copyWith({
